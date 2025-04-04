@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
+const fs = require('fs');
 const app = express();
 const port = 3000;
 
@@ -13,7 +14,6 @@ app.post('/run-cpp', (req, res) => {
     const { code } = req.body;
 
     // Сохраняем код в файл
-    const fs = require('fs');
     const filename = 'user_code.cpp';
     fs.writeFileSync(filename, code);
 
